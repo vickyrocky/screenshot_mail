@@ -9,8 +9,6 @@ import pyttsx3
 import getpass
 import pathlib
 
-i=0
-
 username = input("Please enter email username:\n ")
 pwd = getpass.getpass("Please enter email password:\n ")
 receiver = input("Please enter email id of receiver:\n")
@@ -47,15 +45,20 @@ def send_mail(ImgFileName):
 		s.quit()
 	except Exception as e:
 		print(e)
-		
-while i<45:
-	try:
-		pyautogui.screenshot(str(pathlib.Path(__file__).parent.absolute())+r'\question'+str(i)+r'.jpg')
-		print("Screenshot taken.")
-	except Exception as e:
-		print(e)
-	time.sleep(5)
-	send_mail(str(pathlib.Path(__file__).parent.absolute())+r'\question'+str(i)+r'.jpg')
-	time.sleep(5)
-	speak("Next")
-	i+=1
+
+def main():
+	i=1
+	while i<45:
+		try:
+			pyautogui.screenshot(str(pathlib.Path(__file__).parent.absolute())+r'\question'+str(i)+r'.jpg')
+			print("Screenshot taken.")
+		except Exception as e:
+			print(e)
+		time.sleep(5)
+		send_mail(str(pathlib.Path(__file__).parent.absolute())+r'\question'+str(i)+r'.jpg')
+		time.sleep(5)
+		speak("Next")
+		i+=1
+
+if __name__ == "__main__":
+	main()
