@@ -9,8 +9,8 @@ import pyttsx3
 import getpass
 import pathlib
 
-username = input("Please enter email username:\n ")
-pwd = getpass.getpass("Please enter email password:\n ")
+username = input("Please enter email username:\n")
+pwd = getpass.getpass("Please enter email password:\n")
 receiver = input("Please enter email id of receiver:\n")
 
 def speak(bolo):
